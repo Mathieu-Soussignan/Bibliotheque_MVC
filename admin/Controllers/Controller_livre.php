@@ -22,19 +22,6 @@ class Controller_livre extends Controller
         $this->render("all_livres", $data);
     }
 
-    // public function action_add_livre()
-    // {
-    //     // if (isset($_POST['submit'])) {
-    //     //     $m = Model::get_model();
-    //     //     $m->get_add_livre();
-    //     //     $data = ["livres" => $m->get_all_livres()];
-    //     //     $this->render("all_livres", $data);
-    //     // } else {
-    //     //     $this->render("add_livre");
-    //     // }
-
-    // }
-
     public function action_add_livre()
     {
         if (

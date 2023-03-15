@@ -17,8 +17,6 @@
     	<a class="inscription" href="?controller=home&action=sign_up" style="display: block; text-align: center; margin-top: 10px; font-size:20px; text-decoration: none;">Inscrivez-vous</a>
     	<br>
     	<!-- lien vers la page de modification du mot de passe -->
-    	<a class="changement" href="#" style="display: block; text-align: center; margin-top: 10px; font-size:20px; text-decoration: none;">Mot de passe oublié</a>
+    	<a class="changement" href="?controller=login&action=update_mdp" style="display: block; text-align: center; margin-top: 10px; font-size:20px; text-decoration: none;">Mot de passe oublié</a>
     	<br><br>
     </main>
-
-
