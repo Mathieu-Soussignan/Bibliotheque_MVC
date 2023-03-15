@@ -1,3 +1,5 @@
+<h3 class="titrePage"> <?= $message ?> </h3>
+
 <table class='table table-bordered table-responsive-md bg_table'>
 	<thead>
 		<tr>

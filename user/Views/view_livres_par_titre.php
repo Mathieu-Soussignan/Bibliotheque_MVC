@@ -1,5 +1,4 @@
-Résultat de votre recherche :
-<br />
+<h3 class="titrePage"> Affichage des livres par Titre </h3>
 
 <table class='table table-bordered table-responsive-md bg_table'>
     <thead>

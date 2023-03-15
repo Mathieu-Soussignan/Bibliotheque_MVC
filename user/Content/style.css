@@ -117,6 +117,12 @@ h2.top {
     margin-top: 2%;
 }
 
+h3.titrePage {
+    text-align: center;
+    padding-top: 30px;
+    margin-bottom: 2.5rem;
+}
+
 footer {
     position: relative;
     bottom: 0;

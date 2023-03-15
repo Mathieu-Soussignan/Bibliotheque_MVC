@@ -18,7 +18,7 @@ class Controller_livre extends Controller
     public function action_all_livres()
     {
         $m = Model::get_model();
-        $data = ["livres" => $m->get_all_livres()];
+        $data = ["livres" => $m->get_all_livres(), "message" => "Affichage des livres"];
         $this->render("all_livres", $data);
     }
 

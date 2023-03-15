@@ -1,5 +1,4 @@
-Résultat de votre recherche :
-<br />
+<h3 class="titrePage"> Affichage des commandes fournisseurs par raison sociale</h3>
 
 <table class='table table-bordered table-responsive-md bg_table'>
     <thead>

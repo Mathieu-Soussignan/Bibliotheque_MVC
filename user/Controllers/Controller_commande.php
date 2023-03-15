@@ -18,7 +18,7 @@ class Controller_commande extends Controller
     public function action_all_commande()
     {
         $m = Model::get_model();
-        $data = ["commande" => $m->get_all_commande()];
+        $data = ["commande" => $m->get_all_commande(), "message" => "Affichage des commandes"];
         $this->render("all_commande", $data);
     }
 

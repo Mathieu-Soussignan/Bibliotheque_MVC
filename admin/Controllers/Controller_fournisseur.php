@@ -18,7 +18,7 @@ class Controller_fournisseur extends Controller
     public function action_all_fournisseur()
     {
         $m = Model::get_model();
-        $data = ["fournisseur" => $m->get_all_fournisseur()];
+        $data = ["fournisseur" => $m->get_all_fournisseur(), "message" => "Affichage des fournisseurs"];
         $this->render("all_fournisseur", $data);
     }
 
