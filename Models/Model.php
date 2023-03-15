@@ -29,10 +29,31 @@ class Model
         return self::$instance;
     }
 
-    public function get_login_user()
+    public function get_sign_up_user()
     {
+        $nom = $_POST['name'];
+        $prenom = $_POST['prenom'];
         $mail = $_POST['mail'];
         $mdp = $_POST['mdp'];
+        $r = $this->bd->prepare("INSERT INTO user (nom, prenom, mail, mdp) VALUES (:nom,:prenom,:mail,:mdp)");
+        $r->bindParam(':nom', $nom);
+        $r->bindParam(':prenom', $prenom);
+        $r->bindParam(':mail', $mail);
+        $r->bindParam(':mdp', $mdp);
+        $r->execute();
+    }
+
+    public function get_login_user()
+    {
+        $mail = filter_var(trim($_POST['mail'], FILTER_VALIDATE_EMAIL));
+        $mdp = filter_var(trim($_POST['mdp'], FILTER_SANITIZE_SPECIAL_CHARS));
+
+        if (!$mail) {
+            // si l'adresse e-mail n'est pas valide, renvoie un message d'erreur
+            echo "<script>alert('L'adresse e-mail n'est pas valide');</script>";
+            return;
+        }
+
         $r = $this->bd->prepare("SELECT * FROM `user` WHERE mail=:mail AND mdp=:mdp");
         $r->bindParam(':mail', $mail);
         $r->bindParam(':mdp', $mdp);
@@ -40,7 +61,11 @@ class Model
 
         if ($r->rowCount() > 0) {
             $user = $r->fetch(PDO::FETCH_OBJ);
+
             return $user;
+        } else {
+            // Aucun utilisateur correspondant aux identifiants fournis n'a été trouvé
+            return false;
         }
     }
 }   //* Fin de la Classe

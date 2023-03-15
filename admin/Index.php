@@ -19,12 +19,12 @@
 
 <body>
     <?php
+    //Démarrage de la session
+    session_start();
     //* Inclure les fichiers nécessaires
     require_once 'Controllers/Controller.php';
     require_once 'Models/Model.php';
     require_once 'Utils/header.php';
-    // echo "Controller : " . $_GET['controller'] . "<br>";
-    // echo "action : " . $_GET['action'] . "<br>";
 
     //* Tableau des contrôleurs disponibles
     $controllers = ["home", "livre", "fournisseur", "commande"];

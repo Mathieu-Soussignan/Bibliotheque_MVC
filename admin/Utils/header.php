@@ -1,9 +1,15 @@
 <header>
 	<div>
-		<div class="row">
-			<div class="col-12 text-center" id="titre">
-				<h1 class="titrePage">Bienvenue sur la page d'accueil</h1>
-			</div>
+		<div style="display: flex; align-items: center; justify-content: space-between;">
+			<p id="started" style="margin: 0; font-size: 25px; font-weight: bold; margin: 0 0 0 20px;">
+				<?php
+				// session_start();
+				// $nom = $_SESSION['nom'];
+				//$prenom = $_SESSION['prenom'];
+				// echo $nom . "&nbsp;" . $prenom; 
+				?>
+			</p>
+			<a id="logout" href="./?controller=home&action=home">Deconnexion</a>
 		</div>
 		<nav id="navbar">
 			<ul>
@@ -45,8 +51,5 @@
 				</li>
 			</ul>
 		</nav>
-		<div class="logout">
-			<a href="./?controller=home&action=home"><button>Deconnexion</button></a>
-		</div>
 	</div>
 </header>

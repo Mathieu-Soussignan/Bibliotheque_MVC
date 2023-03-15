@@ -18,16 +18,67 @@ class Controller_livre extends Controller
     public function action_all_livres()
     {
         $m = Model::get_model();
-        $data = ["livres" => $m->get_all_livres()];
+        $data = ["livres" => $m->get_all_livres(), "message" => "Affichage des livres"];
         $this->render("all_livres", $data);
     }
 
+    // public function action_add_livre()
+    // {
+    //     // if (isset($_POST['submit'])) {
+    //     //     $m = Model::get_model();
+    //     //     $m->get_add_livre();
+    //     //     $data = ["livres" => $m->get_all_livres()];
+    //     //     $this->render("all_livres", $data);
+    //     // } else {
+    //     //     $this->render("add_livre");
+    //     // }
+
+    // }
+
     public function action_add_livre()
     {
-        if (isset($_POST['submit'])) {
+        if (
+            'POST' === $_SERVER['REQUEST_METHOD']
+        ) {
+
+            //on vérifie si les inputs sont vides
+            if (
+                empty($ISBN) || empty($Titre) || empty($Nom_auteur) || empty($Prenom_auteur)
+            ) {
+                echo 'Certains champs sont vides';
+
+                exit;
+            }
+
+            // extraire les données pour les utiliser
+            $ISBN = trim(filter_input(INPUT_POST, 'ISBN', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+            $Titre = trim(filter_input(INPUT_POST, 'Titre', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+            $Theme = trim(filter_input(INPUT_POST, 'Theme', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+            $Nb_pages = trim(filter_input(INPUT_POST, 'Nb_pages', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+            $Format = trim(filter_input(INPUT_POST, 'Format', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+            $Nom_auteur = trim(filter_input(INPUT_POST, 'Nom_auteur', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+            $Prenom_auteur = trim(filter_input(INPUT_POST, 'Prenom_auteur', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+            $Editeur = trim(filter_input(INPUT_POST, 'Editeur', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+            $Annee_edition = trim(filter_input(INPUT_POST, 'Annee_edition', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+            $Prix = trim(filter_input(INPUT_POST, 'Prix', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+            $Langue = trim(filter_input(INPUT_POST, 'Langue', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+
+            // s'assurer que les données sont safe
+            $ISBN = trim(htmlspecialchars($ISBN));
+            $Titre = trim(htmlspecialchars($Titre));
+            $Theme = trim(htmlspecialchars($Theme));
+            $Nb_pages = trim(htmlspecialchars($Nb_pages));
+            $Format = trim(htmlspecialchars($Format));
+            $Nom_auteur = trim(htmlspecialchars($Nom_auteur));
+            $Prenom_auteur = trim(htmlspecialchars($Prenom_auteur));
+            $Editeur = trim(htmlspecialchars($Editeur));
+            $Annee_edition = trim(htmlspecialchars($Annee_edition));
+            $Prix = trim(htmlspecialchars($Prix));
+            $Langue = trim(htmlspecialchars($Langue));
+
             $m = Model::get_model();
             $m->get_add_livre();
-            $data = ["livres" => $m->get_all_livres()];
+            $data = ["livres" => $m->get_all_livres(), "message" => "Affichage des livres"];
             $this->render("all_livres", $data);
         } else {
             $this->render("add_livre");
@@ -55,7 +106,7 @@ class Controller_livre extends Controller
             $livres = $m->get_all_livres();
 
             // render view "all_livres" en lui passant la liste des livres mise à jour
-            $data = ['livres' => $livres];
+            $data = ['livres' => $livres, "message" => "Affichage des livres"];
             $this->render("all_livres", $data);
         }
     }
@@ -70,7 +121,7 @@ class Controller_livre extends Controller
         $livres = $m->get_all_livres();
 
         // render view "all_livres" en lui passant la liste des livres mise à jour
-        $data = ['livres' => $livres];
+        $data = ['livres' => $livres, "message" => "Affichage des livres"];
         $this->render("all_livres", $data);
     }
 

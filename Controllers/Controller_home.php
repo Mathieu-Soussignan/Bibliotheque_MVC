@@ -13,4 +13,9 @@ class Controller_home extends Controller
 	{
 		$this->render("home");
 	}
+
+	public function action_sign_up()
+	{
+		$this->render("sign_up");
+	}
 }

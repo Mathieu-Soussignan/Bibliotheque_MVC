@@ -11,24 +11,36 @@ class Controller_login extends Controller
     {
         $this->render("home");
     }
+
     public function action_login()
     {
         if (isset($_POST['login'])) {
-            $m = Model::get_model();
-            $user = $m->get_login_user();
-
-            $nom = $user->nom;
-            $prenom = $user->prenom;
-            $role = $user->role;
-
-            $_SESSION['nom'] = $nom;
-            $_SESSION['prenom'] = $prenom;
-            $_SESSION['role'] = $role;
-            if ($_SESSION['role'] === 2) {
-                header('Location: ./admin/');
-            } else {
-                header('Location: ./user/');
+            try {
+                $m = Model::get_model();
+                $user = $m->get_login_user();
+                if (!$user) {
+                    header('Location: ?controller=home&action=home');
+                    exit();
+                }
+                $nom = $user->nom;
+                $prenom = $user->prenom;
+                $role = $user->role;
+                if (session_status() != PHP_SESSION_ACTIVE) {
+                    session_start();
+                }
+                $_SESSION['nom'] = $nom;
+                $_SESSION['prenom'] = $prenom;
+                $_SESSION['role'] = $role;
+                if ($_SESSION['role'] === 2) {
+                    header('Location: admin/');
+                } else {
+                    header('Location: user/');
+                    exit();
+                }
+            } catch (PDOException $e) {
+                echo "Problème lors de la tentative de connexion";
             }
         }
+        $this->render("home");
     }
 }

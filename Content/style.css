@@ -19,6 +19,10 @@ h2.top {
     margin-top: 2%;
 }
 
+h2.signUp {
+    text-align: center;
+}
+
 footer {
     position: relative;
     bottom: 0;

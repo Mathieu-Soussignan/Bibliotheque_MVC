@@ -24,11 +24,9 @@
     require_once 'Controllers/Controller.php';
     require_once 'Models/Model.php';
     require_once 'Utils/header.php';
-    // echo "Controller : " . $_GET['controller'] . "<br>";
-    // echo "action : " . $_GET['action'] . "<br>";
 
     //* Tableau des contrôleurs disponibles
-    $controllers = ["home", "login"];
+    $controllers = ["home", "login", "sign_up"];
 
     //* Nom du contrôleur par défaut
     $controller_default = "home";
