@@ -40,6 +40,12 @@ nav li a, p{
     cursor: pointer;
 }
 
+#started {
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 nav li a:hover {
     background-color: #111;
     display: block;

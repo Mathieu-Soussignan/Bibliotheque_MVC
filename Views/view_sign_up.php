@@ -13,6 +13,12 @@
 
         <label for="password">Mot de Passe : </label>
         <input type="password" id="password" name="mdp" required />
+        <br>
+        <label for="role">Rôle :</label>
+        <select id="role" name="role" class="form-select" aria-label="Default select example">
+            <option value="1" selected class="text-center">Utilisateur</option>
+            <option value="2" selected selected class="text-center">Admin</option>
+        </select>
         <br><br>
         <input type="submit" id="submit" name="submit" value="S'inscrire" />
         <br>

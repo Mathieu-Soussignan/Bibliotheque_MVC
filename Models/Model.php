@@ -35,11 +35,13 @@ class Model
         $prenom = $_POST['prenom'];
         $mail = $_POST['mail'];
         $mdp = $_POST['mdp'];
-        $r = $this->bd->prepare("INSERT INTO user (nom, prenom, mail, mdp) VALUES (:nom,:prenom,:mail,:mdp)");
+        $role = $_POST['role'];
+        $r = $this->bd->prepare("INSERT INTO user (nom, prenom, mail, mdp, role) VALUES (:nom,:prenom,:mail,:mdp,:role)");
         $r->bindParam(':nom', $nom);
         $r->bindParam(':prenom', $prenom);
         $r->bindParam(':mail', $mail);
         $r->bindParam(':mdp', $mdp);
+        $r->bindParam(':role', $role);
         $r->execute();
     }
 
@@ -64,6 +66,9 @@ class Model
 
         if ($r->rowCount() > 0) {
             $user = $r->fetch(PDO::FETCH_OBJ);
+
+            // Démarre la session pour stocker l'ID de l'utilisateur connecté
+            session_start();
 
             return $user;
         } else {

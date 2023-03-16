@@ -18,4 +18,12 @@ class Controller_home extends Controller
 	{
 		$this->render("sign_up");
 	}
+
+	// public function action_destroy()
+	// {
+	// 	session_start();
+
+	// 	// Destruction de la session
+	// 	session_destroy();
+	// }
 }

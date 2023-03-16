@@ -19,7 +19,9 @@
 
 <body>
     <?php
-    session_start();
+    if (session_status() != PHP_SESSION_ACTIVE) {
+        session_start();
+    }
     //* Inclure les fichiers nécessaires
     require_once 'Controllers/Controller.php';
     require_once 'Models/Model.php';

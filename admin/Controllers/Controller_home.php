@@ -12,7 +12,13 @@ class Controller_home extends Controller
 	public function action_home()
 	{
 		$this->render("home");
+	}
 
+	public function action_destroy()
+	{
+		session_start();
+
+		// Destruction de la session
 		session_destroy();
 	}
 }

@@ -21,8 +21,6 @@ class Controller_login extends Controller
             } catch (PDOException $e) {
                 echo "Problème lors de la tentative de connexion";
             }
-            var_dump($user);
-
             if (!$user) {
                 header('Location: ?controller=home&action=home');
                 exit();
@@ -41,7 +39,6 @@ class Controller_login extends Controller
                     header('Location: admin/');
                 } elseif ($_SESSION['role'] === 1) {
                     header('Location: user/');
-                    exit();
                 }
             }
         }

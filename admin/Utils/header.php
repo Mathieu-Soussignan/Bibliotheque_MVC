@@ -3,13 +3,12 @@
 		<div style="display: flex; align-items: center; justify-content: space-between;">
 			<p id="started" style="margin: 0; font-size: 25px; font-weight: bold; margin: 0 0 0 20px;">
 				<?php
-				// session_start();
-				// $nom = $_SESSION['nom'];
-				//$prenom = $_SESSION['prenom'];
-				// echo $nom . "&nbsp;" . $prenom; 
+				$nom = $_SESSION['nom'];
+				$prenom = $_SESSION['prenom'];
+				echo $nom . "&nbsp;" . $prenom;
 				?>
 			</p>
-			<a id="logout" href="./?controller=home&action=home">Deconnexion</a>
+			<a id="logout" href="./?controller=home&action=destroy" onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?');">Déconnexion</a>
 		</div>
 		<nav id="navbar">
 			<ul>
