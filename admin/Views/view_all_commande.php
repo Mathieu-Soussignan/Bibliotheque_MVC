@@ -16,7 +16,7 @@
     <tbody>
         <?php foreach ($commande as $c) : ?>
             <tr>
-                <td> <?= $c->numero_commande ?> </td>
+                <td> <?= $c->id_commande ?> </td>
                 <td> <?= $c->ISBN ?> </td>
                 <td> <?= $c->Nom_auteur ?> </td>
                 <td> <?= $c->Titre ?> </td>

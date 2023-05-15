@@ -22,7 +22,7 @@
         <br><br>
         <input type="submit" id="submit" name="submit" value="S'inscrire" />
         <br>
-        <a href="?controller=sign_up&action=home" style="display: block; text-align: center; font-size:20px; margin-top: 10px; text-decoration: none;">Se connecter</a>
+        <a href="?controller=sign_up&action=home" class="login-link" style="display: block; text-align: center; font-size:20px; margin-top: 10px; text-decoration: none;">Se connecter</a>
         <br><br>
     </form>
 </div>

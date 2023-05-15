@@ -16,7 +16,7 @@
     <tbody>
         <?php foreach ($list_nom_fournisseur as $l) : ?>
             <tr>
-                <td> <?= $l->numero_commande ?> </td>
+                <td> <?= $l->id_commande ?> </td>
                 <td> <?= $l->ISBN ?> </td>
                 <td> <?= $l->Nom_auteur ?> </td>
                 <td> <?= $l->Titre ?> </td>

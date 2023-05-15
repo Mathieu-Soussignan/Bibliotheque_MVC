@@ -23,6 +23,11 @@
     if (session_status() != PHP_SESSION_ACTIVE) {
         session_start();
     }
+    if (!isset($_SESSION['role'])) {
+        header("Location: ?controller=home&action=home");
+        exit;
+    }
+
     //* Inclure les fichiers nécessaires
     require_once 'Controllers/Controller.php';
     require_once 'Models/Model.php';

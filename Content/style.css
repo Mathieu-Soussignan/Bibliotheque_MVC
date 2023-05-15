@@ -6,13 +6,13 @@
 
 h1.titrePage {
     text-align: center;
-    padding-top: 10px;
+    padding-top: 80px;
     margin-bottom: 2.5rem;
 }
 
 h2 {
     text-align: center;
-    margin: 30px 0 60px 0;
+    margin: 50px 0 60px 0;
 }
 
 h2.top {
@@ -21,6 +21,23 @@ h2.top {
 
 h2.signUp {
     text-align: center;
+}
+
+.login-link {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #000;
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.login-link:hover {
+    background-color: #e0e0e0;
+    /* Couleur de fond au survol */
 }
 
 footer {

@@ -8,28 +8,22 @@ abstract class Controller
     //* Constructeur qui appelle l'action correspondante en fonction de l'URL
     public function __construct()
     {
-        if (isset($_GET['action']) and method_exists($this, "action_".$_GET['action']))
-        {
-            $action="action_".$_GET['action'];
+        if (isset($_GET['action']) and method_exists($this, "action_" . $_GET['action'])) {
+            $action = "action_" . $_GET['action'];
             $this->$action();
-        }
-        else
-        {
+        } else {
             $this->action_default();
         }
     }
 
     //* Méthode protégée pour afficher une vue avec des données
-    protected function render ($vue,$data=[])
+    protected function render($vue, $data = [])
     {
         extract($data);
-        $file_name="Views/view_".$vue.".php";
-        if(file_exists($file_name))
-        {
+        $file_name = "Views/view_" . $vue . ".php";
+        if (file_exists($file_name)) {
             require($file_name);
-        }
-        else
-        {
+        } else {
             $this->action_error("pas de vue");
         }
     }
@@ -37,8 +31,8 @@ abstract class Controller
     //* Méthode protégée pour afficher une erreur avec un message
     protected function action_error($message)
     {
-        $data=['error'=>$message];
-        $this->render('error',$data);
+        $data = ['error' => $message];
+        $this->render('error', $data);
         die();
     }
 }

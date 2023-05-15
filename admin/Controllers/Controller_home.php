@@ -18,6 +18,8 @@ class Controller_home extends Controller
 	{
 		session_start();
 
+		session_unset();
+
 		// Destruction de la session
 		session_destroy();
 	}

@@ -16,7 +16,7 @@
     <tbody>
         <?php foreach ($all_date as $a) : ?>
             <tr>
-                <td> <?= $a->numero_commande ?> </td>
+                <td> <?= $a->id_commande ?> </td>
                 <td> <?= $a->ISBN ?> </td>
                 <td> <?= $a->Nom_auteur ?> </td>
                 <td> <?= $a->Titre ?> </td>
